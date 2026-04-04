@@ -1,66 +1,374 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <nav className="sticky top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-sm">
+        <div className="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+          <div className="flex items-center gap-2">
+            <span className="text-xl font-black tracking-tighter text-zinc-900 dark:text-white uppercase">Ramdas Yadav Associates</span>
+          </div>
+          <div className="hidden lg:flex items-center space-x-8">
+            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-900 dark:text-white border-b-2 border-yellow-400 pb-1" href="#">Home</a>
+            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">About Us</a>
+            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">Services</a>
+            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">Process</a>
+            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">Contact Us</a>
+          </div>
+          <div className="flex items-center gap-4">
+            <button className="bg-primary-container text-on-primary-fixed px-8 py-3 font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
+                Get Consultation
+            </button>
+            <button className="lg:hidden text-zinc-900">
+              <span className="material-symbols-outlined">menu</span>
+            </button>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      {/* Hero Section (Dark Theme) */}
+      <section className="bg-inverse-surface text-inverse-on-surface py-24 md:py-32 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="z-10">
+            <div className="inline-block px-4 py-1 mb-6 border-l-4 border-primary-container bg-white/5 font-label text-xs tracking-[0.2em] uppercase text-primary-container">
+                Excellence in Advisory
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-8">
+                Building Financial <br />Confidence for <br />Your Future
+            </h1>
+            <p className="text-lg md:text-xl text-zinc-400 mb-10 max-w-xl leading-relaxed">
+                We provide expert tax, audit, and consulting services tailored for businesses and individuals aiming for global excellence.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <button className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all">
+                  Get Consultation
+              </button>
+              <button className="border border-outline text-inverse-on-surface px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all">
+                  Explore Services
+              </button>
+            </div>
+          </div>
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-primary-container/10 blur-3xl group-hover:bg-primary-container/20 transition-all duration-700"></div>
+            <img alt="Corporate Skyscraper" className="relative w-full aspect-[4/5] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000 shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0TvWQEKa7MjJN20_SgIMFmNJvlzbw4-HuXMXzjhgnSGMzuKXTzx8IIyG9zhw1BKDXdOFmbHF9JTmKoit0hJUCGEjah86p06CT0oFPZWai4FCz_pB_CXgxO744uggxFOALWJQ5EBFXmqmljsm20sgLYZL4DLmxY9euI76n7fVvpi7cZPIQE0eEXx2yQyegotAwUCQNxcZOkVFB27L-71Cn5DZ9nf3PJZc1OjaWuK0PN8v3syKfkQXpZGsojjCmBw7UP3QfgLaBFzeT" />
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Updated Services Section */}
+      <section className="bg-surface py-32 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
+            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Expertise</span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Our Services</h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Category 1: Registration Services */}
+            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="material-symbols-outlined text-4xl text-primary">app_registration</span>
+                <h3 className="text-2xl font-bold tracking-tight">Registration Services</h3>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Pancard</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Shop Act Registration</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Udyam Registration</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Food Licenses</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> PF / ESIC Registration</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> GST Registration</li>
+                <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
+              </ul>
+              <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
+                  View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+
+            {/* Category 2: Tax Services */}
+            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="material-symbols-outlined text-4xl text-primary">payments</span>
+                <h3 className="text-2xl font-bold tracking-tight">Tax Services</h3>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Income Tax Returns</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> GST Returns</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> TDS Returns</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Tax Consultancy</li>
+                <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
+              </ul>
+              <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
+                  View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+
+            {/* Category 3: Other Services */}
+            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="material-symbols-outlined text-4xl text-primary">category</span>
+                <h3 className="text-2xl font-bold tracking-tight">Other Services</h3>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Accounting &amp; Bookkeeping</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Audit (Co-op Audit)</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Project Reports</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Startup Registration</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Digital Signature</li>
+                <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Insurance Services</li>
+                <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
+              </ul>
+              <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
+                  View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Impact Section */}
+      <section className="bg-inverse-surface text-inverse-on-surface py-20 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center lg:text-left">
+            <div>
+              <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">500+</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Clients Served</p>
+            </div>
+            <div>
+              <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">10+</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Years Experience</p>
+            </div>
+            <div>
+              <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">1000+</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Returns Filed</p>
+            </div>
+            <div>
+              <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">200+</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Businesses Registered</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="bg-surface-container-low py-32 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Advantages</span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Why Choose Us</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">verified</span>
+              <h4 className="text-xl font-bold mb-2">Hassle-free compliance handling</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">We take the complex burden of regulatory compliance off your shoulders so you can focus on growth.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">psychology</span>
+              <h4 className="text-xl font-bold mb-2">Expert CA guidance</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">Direct access to experienced Chartered Accountants for strategic financial decision-making.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">account_balance_wallet</span>
+              <h4 className="text-xl font-bold mb-2">Affordable and transparent pricing</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">No hidden costs. We provide high-end corporate consulting at competitive market rates.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">support_agent</span>
+              <h4 className="text-xl font-bold mb-2">End-to-end business support</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">From initial registration to ongoing auditing and tax planning, we are your lifelong growth partner.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section (Light Grey Theme) */}
+      <section className="bg-surface-container-low py-32 px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="order-2 lg:order-1 relative">
+            <img alt="Team handshake" className="w-full aspect-square object-cover grayscale shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmU9NIYq2hRKDTZRQeFQtYuYM2QQxPOM6dHfRmPEy9aLn6SGee6CkGWurxKS5P3GO07VOqxP0o1k2xG_VZoB4oeDvTzJiLzC3GJOissRR9pPVmO6GX53OeJf5D5n480CK5LWNSkGp_aOqzFn_l5YgtM3VLZMji9LnDQpyNU7O7tvxJUSdSB02OO-j0_F_5lqUVgfYRntAutIf7BKYNbQx0wBzDOu2m6t6Gnvkg8libXwMeyouQjiOZXSABwZE0QtEQ8MxqxomW9h8T" />
+            <div className="absolute -bottom-8 -right-8 bg-primary-container p-12 hidden md:block">
+              <p className="text-4xl font-black text-on-primary-fixed">25+</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-on-primary-fixed">Years of Legacy</p>
+            </div>
+          </div>
+          <div className="order-1 lg:order-2">
+            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Who We Are</span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2 mb-8 leading-tight">Committed to <br />Integrity and Growth</h2>
+            <p className="text-on-surface-variant text-lg leading-relaxed mb-10">
+                Ramdas Yadav Associates stands at the intersection of traditional trust and modern financial agility. We don't just process numbers; we build the foundational pillars that allow businesses to thrive in volatile markets. Our approach is deeply rooted in transparency and data-driven strategy.
+            </p>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <div className="mt-1 bg-primary-container p-1"><span className="material-symbols-outlined text-sm font-bold">check</span></div>
+                <div>
+                  <h4 className="font-bold text-lg">Experienced Professionals</h4>
+                  <p className="text-on-surface-variant text-sm">A multi-disciplinary team of CAs and consultants with global experience.</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <div className="mt-1 bg-primary-container p-1"><span className="material-symbols-outlined text-sm font-bold">check</span></div>
+                <div>
+                  <h4 className="font-bold text-lg">Client-Centric Approach</h4>
+                  <p className="text-on-surface-variant text-sm">Tailored solutions that address specific business pain points and goals.</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <div className="mt-1 bg-primary-container p-1"><span className="material-symbols-outlined text-sm font-bold">check</span></div>
+                <div>
+                  <h4 className="font-bold text-lg">Proven Track Record</h4>
+                  <p className="text-on-surface-variant text-sm">Supporting Fortune 500 companies and growing SMEs for over two decades.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="bg-surface py-32 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Methodology</span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">How We Work</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* Step 1 */}
+            <div className="relative">
+              <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">01</div>
+              <div className="relative z-10">
+                <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
+                        Consultation
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed">
+                        Deep-dive sessions to understand your business objectives and financial landscape.
+                </p>
+              </div>
+            </div>
+            {/* Step 2 */}
+            <div className="relative">
+              <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">02</div>
+              <div className="relative z-10">
+                <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
+                        Analysis
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed">
+                        Rigorous data analysis and risk assessment to identify key optimization opportunities.
+                </p>
+              </div>
+            </div>
+            {/* Step 3 */}
+            <div className="relative">
+              <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">03</div>
+              <div className="relative z-10">
+                <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
+                        Strategy
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed">
+                        Formulating a bespoke roadmap combining tax efficiency with growth-focused advisory.
+                </p>
+              </div>
+            </div>
+            {/* Step 4 */}
+            <div className="relative">
+              <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">04</div>
+              <div className="relative z-10">
+                <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
+                        Execution
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed">
+                        Seamless implementation of strategies with continuous monitoring and reporting.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="bg-surface-container-high py-32 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Clients</span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">What Our Clients Say</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-surface-container-lowest p-12 border-t-8 border-primary-container">
+              <span className="material-symbols-outlined text-surface-container-highest text-6xl mb-6">format_quote</span>
+              <p className="text-xl text-on-surface leading-relaxed mb-8 italic">
+                    "The strategic tax planning provided by Ramdas Yadav Associates transformed our international operations. Their precision and depth of knowledge are unparalleled in the industry."
+              </p>
+              <div>
+                <p className="font-black text-lg">Jonathan Sterling</p>
+                <p className="text-sm uppercase tracking-widest text-on-surface-variant">CFO, Global Logistics Corp</p>
+              </div>
+            </div>
+            <div className="bg-surface-container-lowest p-12 border-t-8 border-primary-container">
+              <span className="material-symbols-outlined text-surface-container-highest text-6xl mb-6">format_quote</span>
+              <p className="text-xl text-on-surface leading-relaxed mb-8 italic">
+                    "A partner you can trust. Their business advisory team helped us navigate a complex merger with absolute ease and strategic foresight."
+              </p>
+              <div>
+                <p className="font-black text-lg">Sarah Chen</p>
+                <p className="text-sm uppercase tracking-widest text-on-surface-variant">Managing Director, TechVentures Asia</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section (Accent Theme) */}
+      <section className="bg-primary-container py-24 px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.4),transparent)]"></div>
+        <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-on-primary-fixed mb-4">
+                Ready to grow your <br />business with confidence?
+            </h2>
+            <p className="text-on-primary-fixed/80 text-lg max-w-xl font-medium">
+                Let's discuss how our strategic consulting can drive your financial success.
+            </p>
+          </div>
+          <button className="bg-black text-primary-container px-12 py-6 font-black uppercase tracking-[0.2em] text-sm hover:translate-x-2 transition-transform duration-300 shadow-xl">
+            Contact Us Today
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-zinc-950 dark:bg-black w-full pt-20 pb-10 border-t border-zinc-800">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
+          <div className="md:col-span-2">
+            <div className="text-2xl font-black tracking-tighter text-white mb-6 uppercase">Ramdas Yadav Associates</div>
+            <p className="text-zinc-400 font-inter text-sm leading-relaxed max-w-md mb-8">
+                Defining the future of professional financial services through unmatched expertise and architectural precision. Trusted by market leaders globally.
+            </p>
+            <div className="flex gap-4">
+              <a className="w-10 h-10 border border-zinc-800 flex items-center justify-center text-white hover:bg-primary-container hover:text-black transition-all" href="#"><span className="material-symbols-outlined text-lg">public</span></a>
+              <a className="w-10 h-10 border border-zinc-800 flex items-center justify-center text-white hover:bg-primary-container hover:text-black transition-all" href="#"><span className="material-symbols-outlined text-lg">share</span></a>
+              <a className="w-10 h-10 border border-zinc-800 flex items-center justify-center text-white hover:bg-primary-container hover:text-black transition-all" href="#"><span className="material-symbols-outlined text-lg">mail</span></a>
+            </div>
+          </div>
+          <div>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Quick Links</h4>
+            <ul className="space-y-4">
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Home</a></li>
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">About Us</a></li>
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Services</a></li>
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Process</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Resources</h4>
+            <ul className="space-y-4">
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Privacy Policy</a></li>
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Terms of Service</a></li>
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Contact Us</a></li>
+              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4 text-yellow-400 font-bold" href="#">Client Login</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-8 mt-20 pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-zinc-500 font-inter text-sm">© 2024 Ramdas Yadav Associates. All rights reserved.</p>
+          <p className="text-zinc-500 font-inter text-sm">Architectural Authority in Finance</p>
+        </div>
+      </footer>
+    </>
+  )
 }
