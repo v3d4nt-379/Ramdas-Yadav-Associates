@@ -15,7 +15,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <button className="bg-primary-container text-on-primary-fixed px-8 py-3 font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
-                Get Consultation
+              Get Consultation
             </button>
             <button className="lg:hidden text-zinc-900">
               <span className="material-symbols-outlined">menu</span>
@@ -29,20 +29,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="z-10">
             <div className="inline-block px-4 py-1 mb-6 border-l-4 border-primary-container bg-white/5 font-label text-xs tracking-[0.2em] uppercase text-primary-container">
-                Excellence in Advisory
+              Excellence in Advisory
             </div>
             <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-8">
-                Building Financial <br />Confidence for <br />Your Future
+              Building Financial <br />Confidence for <br />Your Future
             </h1>
             <p className="text-lg md:text-xl text-zinc-400 mb-10 max-w-xl leading-relaxed">
-                We provide expert tax, audit, and consulting services tailored for businesses and individuals aiming for global excellence.
+              We provide expert tax, audit, and consulting services tailored for businesses and individuals aiming for global excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <button className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-primary-container transition-all duration-300">
-                  Get Consultation
+                Get Consultation
               </button>
               <button className="border border-outline text-inverse-on-surface px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all">
-                  Explore Services
+                Explore Services
               </button>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Home() {
                 <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
               </ul>
               <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
-                  View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </a>
             </div>
 
@@ -95,7 +95,7 @@ export default function Home() {
                 <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
               </ul>
               <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
-                  View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </a>
             </div>
 
@@ -115,7 +115,7 @@ export default function Home() {
                 <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
               </ul>
               <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
-                  View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function Home() {
 
       {/* About Section (Light Grey Theme) */}
       <section className="bg-surface-container-low py-32 px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <div className="order-2 lg:order-1 relative">
             <img alt="Team handshake" className="w-full aspect-square object-cover grayscale shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmU9NIYq2hRKDTZRQeFQtYuYM2QQxPOM6dHfRmPEy9aLn6SGee6CkGWurxKS5P3GO07VOqxP0o1k2xG_VZoB4oeDvTzJiLzC3GJOissRR9pPVmO6GX53OeJf5D5n480CK5LWNSkGp_aOqzFn_l5YgtM3VLZMji9LnDQpyNU7O7tvxJUSdSB02OO-j0_F_5lqUVgfYRntAutIf7BKYNbQx0wBzDOu2m6t6Gnvkg8libXwMeyouQjiOZXSABwZE0QtEQ8MxqxomW9h8T" />
             <div className="absolute -bottom-8 -right-8 bg-primary-container p-12 hidden md:block">
@@ -190,33 +190,89 @@ export default function Home() {
           </div>
           <div className="order-1 lg:order-2">
             <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Who We Are</span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2 mb-8 leading-tight">Committed to <br />Integrity and Growth</h2>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2 mb-8 leading-tight">Your Trusted Partner</h2>
             <p className="text-on-surface-variant text-lg leading-relaxed mb-10">
-                Ramdas Yadav Associates stands at the intersection of traditional trust and modern financial agility. We don't just process numbers; we build the foundational pillars that allow businesses to thrive in volatile markets. Our approach is deeply rooted in transparency and data-driven strategy.
+              Ramdas Yadav Associates stands at the intersection of traditional trust and modern financial agility. We don't just process numbers; we build the foundational pillars that allow businesses to thrive in volatile markets. Our approach is deeply rooted in transparency and data-driven strategy.
             </p>
-            <ul className="space-y-6">
-              <li className="flex items-start gap-4">
-                <div className="mt-1 bg-primary-container p-1"><span className="material-symbols-outlined text-sm font-bold">check</span></div>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
                 <div>
-                  <h4 className="font-bold text-lg">Experienced Professionals</h4>
+                  <h4 className="font-bold text-base text-on-surface">Experienced Professionals</h4>
                   <p className="text-on-surface-variant text-sm">A multi-disciplinary team of CAs and consultants with global experience.</p>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <div className="mt-1 bg-primary-container p-1"><span className="material-symbols-outlined text-sm font-bold">check</span></div>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
                 <div>
-                  <h4 className="font-bold text-lg">Client-Centric Approach</h4>
+                  <h4 className="font-bold text-base text-on-surface">Client-Centric Approach</h4>
                   <p className="text-on-surface-variant text-sm">Tailored solutions that address specific business pain points and goals.</p>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <div className="mt-1 bg-primary-container p-1"><span className="material-symbols-outlined text-sm font-bold">check</span></div>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-primary mt-0.5">check_circle</span>
                 <div>
-                  <h4 className="font-bold text-lg">Proven Track Record</h4>
+                  <h4 className="font-bold text-base text-on-surface">Proven Track Record</h4>
                   <p className="text-on-surface-variant text-sm">Supporting Fortune 500 companies and growing SMEs for over two decades.</p>
                 </div>
               </li>
             </ul>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <button className="bg-inverse-surface text-inverse-on-surface px-8 py-3.5 font-bold text-xs uppercase tracking-wider hover:bg-primary-container hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md">
+                About Us
+              </button>
+              <button className="border-2 border-outline px-8 py-3.5 font-bold text-xs uppercase tracking-wider hover:bg-surface-variant hover:border-surface-variant text-on-surface transition-all duration-300">
+                Our Services
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Portfolio/Team Section */}
+        <div className="max-w-7xl mx-auto mt-32">
+          <div className="mb-12 text-center">
+            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Leadership</span>
+            {/* <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Meet Our Partners</h2> */}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Dummy (Left) */}
+            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                <img alt="CA Nitin Pawar" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 bg-surface-container-high" src="/assets/nitin-pawar-BjUnlu92.webp" />
+              </div>
+              <h3 className="font-black text-2xl tracking-tight mb-1">CA Nitin Pawar</h3>
+              <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Designated Partner</p>
+              <p className="text-on-surface-variant text-sm font-bold mb-1">M.Com, CA</p>
+              <p className="text-on-surface text-sm font-bold">Audit & Assurance Specialist</p>
+              <div className="w-12 h-1 bg-primary-container mx-auto my-4"></div>
+              <p className="text-on-surface-variant text-sm leading-relaxed">Head of the firm's Audit & Assurance practice. Specializes in Statutory Audits, Bank Branch Audits, and GST/TDS compliance.</p>
+            </div>
+
+            {/* Card 2: Ramdas Yadav (Middle) */}
+            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full transform md:-translate-y-4">
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                <img alt="Ramdas Yadav" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 bg-surface-container-high" src="/assets/sumit-kadam-Cgz8VSsD.webp" />
+              </div>
+              <h3 className="font-black text-2xl tracking-tight mb-1">Ramdas Yadav</h3>
+              <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Founder & Principal</p>
+              <p className="text-on-surface-variant text-sm font-bold mb-1">M.Com., CA.Final., G.D.C. & A.</p>
+              <p className="text-on-surface text-sm font-bold">+91 8698037909</p>
+              <div className="w-12 h-1 bg-primary-container mx-auto my-4"></div>
+              <p className="text-on-surface-variant text-sm leading-relaxed">The firm's visionary leader bringing decades of expertise in direct taxes, corporate law, and strategic financial planning.</p>
+            </div>
+
+            {/* Card 3: Ajinkya Yadav (Right) */}
+            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                <img alt="Ajinkya Yadav" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 bg-surface-container-high" src="/assets/vishal-jagtap-DRcFQmyw.webp" />
+              </div>
+              <h3 className="font-black text-2xl tracking-tight mb-1">Ajinkya Yadav</h3>
+              <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Managing Partner</p>
+              <p className="text-on-surface-variant text-sm font-bold mb-1">M.Com., G.D.C. & A., Certified Auditor</p>
+              <p className="text-on-surface text-sm font-bold">+91 8999356208</p>
+              <div className="w-12 h-1 bg-primary-container mx-auto my-4"></div>
+              <p className="text-on-surface-variant text-sm leading-relaxed">Driving innovation and excellence. Expert in Taxation and Government Audits with a focus on comprehensive compliance.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -234,10 +290,10 @@ export default function Home() {
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">01</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
-                        Consultation
+                  Consultation
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed">
-                        Deep-dive sessions to understand your business objectives and financial landscape.
+                  Deep-dive sessions to understand your business objectives and financial landscape.
                 </p>
               </div>
             </div>
@@ -246,10 +302,10 @@ export default function Home() {
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">02</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
-                        Analysis
+                  Analysis
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed">
-                        Rigorous data analysis and risk assessment to identify key optimization opportunities.
+                  Rigorous data analysis and risk assessment to identify key optimization opportunities.
                 </p>
               </div>
             </div>
@@ -258,10 +314,10 @@ export default function Home() {
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">03</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
-                        Strategy
+                  Strategy
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed">
-                        Formulating a bespoke roadmap combining tax efficiency with growth-focused advisory.
+                  Formulating a bespoke roadmap combining tax efficiency with growth-focused advisory.
                 </p>
               </div>
             </div>
@@ -270,10 +326,10 @@ export default function Home() {
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">04</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
-                        Execution
+                  Execution
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed">
-                        Seamless implementation of strategies with continuous monitoring and reporting.
+                  Seamless implementation of strategies with continuous monitoring and reporting.
                 </p>
               </div>
             </div>
@@ -292,7 +348,7 @@ export default function Home() {
             <div className="bg-surface-container-lowest p-12 border-t-8 border-primary-container">
               <span className="material-symbols-outlined text-surface-container-highest text-6xl mb-6">format_quote</span>
               <p className="text-xl text-on-surface leading-relaxed mb-8 italic">
-                    "The strategic tax planning provided by Ramdas Yadav Associates transformed our international operations. Their precision and depth of knowledge are unparalleled in the industry."
+                "The strategic tax planning provided by Ramdas Yadav Associates transformed our international operations. Their precision and depth of knowledge are unparalleled in the industry."
               </p>
               <div>
                 <p className="font-black text-lg">Jonathan Sterling</p>
@@ -302,7 +358,7 @@ export default function Home() {
             <div className="bg-surface-container-lowest p-12 border-t-8 border-primary-container">
               <span className="material-symbols-outlined text-surface-container-highest text-6xl mb-6">format_quote</span>
               <p className="text-xl text-on-surface leading-relaxed mb-8 italic">
-                    "A partner you can trust. Their business advisory team helped us navigate a complex merger with absolute ease and strategic foresight."
+                "A partner you can trust. Their business advisory team helped us navigate a complex merger with absolute ease and strategic foresight."
               </p>
               <div>
                 <p className="font-black text-lg">Sarah Chen</p>
@@ -319,10 +375,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
           <div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-on-primary-fixed mb-4">
-                Ready to grow your <br />business with confidence?
+              Ready to grow your <br />business with confidence?
             </h2>
             <p className="text-on-primary-fixed/80 text-lg max-w-xl font-medium">
-                Let's discuss how our strategic consulting can drive your financial success.
+              Let's discuss how our strategic consulting can drive your financial success.
             </p>
           </div>
           <button className="bg-black text-primary-container px-12 py-6 font-black uppercase tracking-[0.2em] text-sm hover:translate-x-2 transition-transform duration-300 shadow-xl">
@@ -337,7 +393,7 @@ export default function Home() {
           <div className="md:col-span-2">
             <div className="text-2xl font-black tracking-tighter text-white mb-6 uppercase">Ramdas Yadav Associates</div>
             <p className="text-zinc-400 font-inter text-sm leading-relaxed max-w-md mb-8">
-                Defining the future of professional financial services through unmatched expertise and architectural precision. Trusted by market leaders globally.
+              Defining the future of professional financial services through unmatched expertise and architectural precision. Trusted by market leaders globally.
             </p>
             <div className="flex gap-4">
               <a className="w-10 h-10 border border-zinc-800 flex items-center justify-center text-white hover:bg-primary-container hover:text-black transition-all" href="#"><span className="material-symbols-outlined text-lg">public</span></a>
