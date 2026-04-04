@@ -1,28 +1,10 @@
+import Link from 'next/link';
+import Navbar from '@/components/layout/Navbar';
+
 export default function Home() {
   return (
     <>
-      <nav className="sticky top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-sm">
-        <div className="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-black tracking-tighter text-zinc-900 dark:text-white uppercase">Ramdas Yadav Associates</span>
-          </div>
-          <div className="hidden lg:flex items-center space-x-8">
-            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-900 dark:text-white border-b-2 border-yellow-400 pb-1" href="#">Home</a>
-            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">About Us</a>
-            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">Services</a>
-            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">Process</a>
-            <a className="font-inter tracking-tight font-bold text-sm uppercase text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" href="#">Contact Us</a>
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="bg-primary-container text-on-primary-fixed px-8 py-3 font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
-              Get Consultation
-            </button>
-            <button className="lg:hidden text-zinc-900">
-              <span className="material-symbols-outlined">menu</span>
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section (Dark Theme) */}
       <section className="bg-inverse-surface text-inverse-on-surface py-24 md:py-32 overflow-hidden relative">
@@ -41,9 +23,9 @@ export default function Home() {
               <button className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-primary-container transition-all duration-300">
                 Get Consultation
               </button>
-              <button className="border border-outline text-inverse-on-surface px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all">
+              <Link href="/services" className="border border-outline text-inverse-on-surface px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all text-center">
                 Explore Services
-              </button>
+              </Link>
             </div>
           </div>
           <div className="relative group">
@@ -76,9 +58,9 @@ export default function Home() {
                 <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> GST Registration</li>
                 <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
               </ul>
-              <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
+              <Link className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="/services">
                 View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
+              </Link>
             </div>
 
             {/* Category 2: Tax Services */}
@@ -94,9 +76,9 @@ export default function Home() {
                 <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Tax Consultancy</li>
                 <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
               </ul>
-              <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
+              <Link className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="/services">
                 View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
+              </Link>
             </div>
 
             {/* Category 3: Other Services */}
@@ -114,9 +96,9 @@ export default function Home() {
                 <li className="flex items-center gap-3 text-on-surface-variant"><span className="w-1.5 h-1.5 bg-primary-container"></span> Insurance Services</li>
                 <li className="text-primary font-bold text-sm tracking-widest mt-2 uppercase">+ more</li>
               </ul>
-              <a className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="#">
+              <Link className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="/services">
                 View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -146,37 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="bg-surface-container-low py-32 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Advantages</span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Why Choose Us</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
-              <span className="material-symbols-outlined text-4xl text-primary mb-6">verified</span>
-              <h4 className="text-xl font-bold mb-2">Hassle-free compliance handling</h4>
-              <p className="text-on-surface-variant text-sm leading-relaxed">We take the complex burden of regulatory compliance off your shoulders so you can focus on growth.</p>
-            </div>
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
-              <span className="material-symbols-outlined text-4xl text-primary mb-6">psychology</span>
-              <h4 className="text-xl font-bold mb-2">Expert CA guidance</h4>
-              <p className="text-on-surface-variant text-sm leading-relaxed">Direct access to experienced Chartered Accountants for strategic financial decision-making.</p>
-            </div>
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
-              <span className="material-symbols-outlined text-4xl text-primary mb-6">account_balance_wallet</span>
-              <h4 className="text-xl font-bold mb-2">Affordable and transparent pricing</h4>
-              <p className="text-on-surface-variant text-sm leading-relaxed">No hidden costs. We provide high-end corporate consulting at competitive market rates.</p>
-            </div>
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container">
-              <span className="material-symbols-outlined text-4xl text-primary mb-6">support_agent</span>
-              <h4 className="text-xl font-bold mb-2">End-to-end business support</h4>
-              <p className="text-on-surface-variant text-sm leading-relaxed">From initial registration to ongoing auditing and tax planning, we are your lifelong growth partner.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* About Section (Light Grey Theme) */}
       <section className="bg-surface-container-low py-32 px-8 overflow-hidden">
@@ -337,6 +289,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <section className="bg-surface-container-low py-32 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Advantages</span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Why Choose Us</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">verified</span>
+              <h4 className="text-xl font-bold mb-2">Hassle-free compliance handling</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">We take the complex burden of regulatory compliance off your shoulders so you can focus on growth.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">psychology</span>
+              <h4 className="text-xl font-bold mb-2">Expert CA guidance</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">Direct access to experienced Chartered Accountants for strategic financial decision-making.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">account_balance_wallet</span>
+              <h4 className="text-xl font-bold mb-2">Affordable and transparent pricing</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">No hidden costs. We provide high-end corporate consulting at competitive market rates.</p>
+            </div>
+            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <span className="material-symbols-outlined text-4xl text-primary mb-6">support_agent</span>
+              <h4 className="text-xl font-bold mb-2">End-to-end business support</h4>
+              <p className="text-on-surface-variant text-sm leading-relaxed">From initial registration to ongoing auditing and tax planning, we are your lifelong growth partner.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
       <section className="bg-surface-container-high py-32 px-8">
         <div className="max-w-7xl mx-auto">
@@ -404,10 +388,10 @@ export default function Home() {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Quick Links</h4>
             <ul className="space-y-4">
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Home</a></li>
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">About Us</a></li>
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Services</a></li>
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Process</a></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/">Home</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/#about">About Us</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/services">Services</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/#process">Process</Link></li>
             </ul>
           </div>
           <div>
