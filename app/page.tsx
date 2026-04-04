@@ -38,7 +38,7 @@ export default function Home() {
                 We provide expert tax, audit, and consulting services tailored for businesses and individuals aiming for global excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all">
+              <button className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-primary-container transition-all duration-300">
                   Get Consultation
               </button>
               <button className="border border-outline text-inverse-on-surface px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all">
@@ -48,7 +48,7 @@ export default function Home() {
           </div>
           <div className="relative group">
             <div className="absolute -inset-4 bg-primary-container/10 blur-3xl group-hover:bg-primary-container/20 transition-all duration-700"></div>
-            <img alt="Corporate Skyscraper" className="relative w-full aspect-[4/5] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000 shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0TvWQEKa7MjJN20_SgIMFmNJvlzbw4-HuXMXzjhgnSGMzuKXTzx8IIyG9zhw1BKDXdOFmbHF9JTmKoit0hJUCGEjah86p06CT0oFPZWai4FCz_pB_CXgxO744uggxFOALWJQ5EBFXmqmljsm20sgLYZL4DLmxY9euI76n7fVvpi7cZPIQE0eEXx2yQyegotAwUCQNxcZOkVFB27L-71Cn5DZ9nf3PJZc1OjaWuK0PN8v3syKfkQXpZGsojjCmBw7UP3QfgLaBFzeT" />
+            <img alt="Corporate Skyscraper" className="relative w-full aspect-[4/5] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000 shadow-2xl" src="/hero-image.jpg" />
           </div>
         </div>
       </section>
