@@ -1,7 +1,244 @@
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 
+const servicesData = [
+  // REGISTRATION SERVICES
+  {
+    category: "Registration",
+    title: "Private Limited Company Registration",
+    description: "Complete company incorporation for startups and growing businesses.",
+    icon: "domain",
+    points: [
+      "Name approval & incorporation",
+      "MoA & AoA drafting",
+      "PAN, TAN & bank setup support"
+    ]
+  },
+  {
+    category: "Registration",
+    title: "LLP Registration",
+    description: "Ideal structure for professionals and small businesses.",
+    icon: "business",
+    points: [
+      "LLP agreement drafting",
+      "MCA registration process",
+      "Compliance guidance"
+    ]
+  },
+  {
+    category: "Registration",
+    title: "Partnership Firm Registration",
+    description: "Simple and effective setup for multi-owner businesses.",
+    icon: "handshake",
+    points: [
+      "Partnership deed creation",
+      "Registration support",
+      "Legal compliance guidance"
+    ]
+  },
+  {
+    category: "Registration",
+    title: "Proprietorship Registration",
+    description: "Quick and easy business setup for individuals.",
+    icon: "person",
+    points: [
+      "Minimal compliance structure",
+      "GST & Shop Act linkage",
+      "Fast processing"
+    ]
+  },
+  {
+    category: "Registration",
+    title: "GST Registration",
+    description: "Mandatory tax registration for eligible businesses.",
+    icon: "receipt_long",
+    points: [
+      "Application filing",
+      "Documentation support",
+      "Quick approval assistance"
+    ]
+  },
+  {
+    category: "Registration",
+    title: "Udyam (MSME) Registration",
+    description: "Get government recognition and benefits for your business.",
+    icon: "factory",
+    points: [
+      "Instant certificate",
+      "Access to subsidies",
+      "MSME benefits"
+    ]
+  },
+  {
+    category: "Registration",
+    title: "Shop Act (Gumasta) Registration",
+    description: "Legal permission to operate business locally.",
+    icon: "storefront",
+    points: [
+      "Online application support",
+      "Documentation assistance",
+      "Local compliance"
+    ]
+  },
+  {
+    category: "Registration",
+    title: "Import Export Code (IEC)",
+    description: "Required for businesses involved in international trade.",
+    icon: "flight_takeoff",
+    points: [
+      "DGFT registration",
+      "Fast approval process",
+      "Export/import eligibility"
+    ]
+  },
+  
+  // TAX & COMPLIANCE
+  {
+    category: "Tax",
+    title: "GST Return Filing",
+    description: "Accurate and timely GST compliance services.",
+    icon: "request_quote",
+    points: [
+      "Monthly/quarterly filing",
+      "Error-free submission",
+      "Compliance tracking"
+    ]
+  },
+  {
+    category: "Tax",
+    title: "Income Tax Return Filing",
+    description: "Hassle-free income tax filing for individuals and businesses.",
+    icon: "account_balance",
+    points: [
+      "Tax calculation",
+      "Filing support",
+      "Refund assistance"
+    ]
+  },
+  {
+    category: "Tax",
+    title: "TDS Filing",
+    description: "Ensure proper tax deduction and reporting compliance.",
+    icon: "money_off",
+    points: [
+      "Quarterly filings",
+      "Error-free reports",
+      "Penalty avoidance"
+    ]
+  },
+  {
+    category: "Tax",
+    title: "Tax Planning & Advisory",
+    description: "Optimize your taxes with expert planning.",
+    icon: "savings",
+    points: [
+      "Legal tax saving strategies",
+      "Financial structuring",
+      "Long-term planning"
+    ]
+  },
+  {
+    category: "Tax",
+    title: "Business Compliance Management",
+    description: "Stay compliant with all legal and tax requirements.",
+    icon: "rule",
+    points: [
+      "Regular compliance tracking",
+      "Filing reminders",
+      "End-to-end support"
+    ]
+  },
+
+  // BUSINESS & CONSULTING
+  {
+    category: "Business",
+    title: "Startup Consultancy",
+    description: "End-to-end guidance to launch your business.",
+    icon: "rocket_launch",
+    points: [
+      "Business structure advice",
+      "Registration roadmap",
+      "Growth strategy"
+    ]
+  },
+  {
+    category: "Business",
+    title: "Project Report Preparation",
+    description: "Professional reports for loans and business planning.",
+    icon: "description",
+    points: [
+      "Bank-ready reports",
+      "Financial projections",
+      "Business analysis"
+    ]
+  },
+  {
+    category: "Business",
+    title: "Business Structure Advisory",
+    description: "Choose the best structure for your business.",
+    icon: "account_tree",
+    points: [
+      "Proprietorship vs LLP vs Pvt Ltd",
+      "Cost & compliance comparison",
+      "Expert recommendations"
+    ]
+  },
+  {
+    category: "Business",
+    title: "Accounting & Bookkeeping",
+    description: "Maintain accurate financial records for your business.",
+    icon: "book",
+    points: [
+      "Sales & purchase tracking",
+      "Expense management",
+      "Financial reporting"
+    ]
+  },
+  {
+    category: "Business",
+    title: "Import Export Guidance",
+    description: "Expert assistance for international business setup.",
+    icon: "public",
+    points: [
+      "Documentation support",
+      "Compliance guidance",
+      "Trade process understanding"
+    ]
+  }
+];
+
+const categoriesList = [
+    { id: "All", label: "All" },
+    { id: "Registration", label: "Registration" },
+    { id: "Tax", label: "Tax & Compliance" },
+    { id: "Business", label: "Business & Consulting" },
+];
+
+const categoryHeaders: Record<string, { title: string, subtitle: string }> = {
+    "Registration": { title: "Registration \nServices", subtitle: "Secure Your Identity" },
+    "Tax": { title: "Tax & \nCompliance", subtitle: "Navigate Complexities" },
+    "Business": { title: "Business & \nConsulting", subtitle: "Strategic Growth" }
+};
+
 export default function Services() {
+  const [activeTab, setActiveTab] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredServices = servicesData.filter(service => {
+    const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          service.description.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          service.category.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesTab = activeTab === "All" || service.category === activeTab;
+    return matchesSearch && matchesTab;
+  });
+
+  const categoriesToRender = activeTab === "All" 
+    ? ["Registration", "Tax", "Business"].filter(tab => filteredServices.some(s => s.category === tab))
+    : [activeTab].filter(tab => filteredServices.some(s => s.category === tab));
+
   return (
     <>
       <Navbar />
@@ -39,106 +276,91 @@ export default function Services() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
               <div className="relative w-full md:w-1/3 flex items-center">
                 <span className="material-symbols-outlined absolute left-4 text-zinc-400">search</span>
-                <input className="w-full bg-white border-none py-4 pl-12 pr-4 font-label text-xs tracking-widest focus:ring-0 text-black placeholder:text-zinc-400 focus:outline-none" placeholder="SEARCH SERVICES..." type="text"/>
+                <input 
+                  className="w-full bg-white border-none py-4 pl-12 pr-4 font-label text-xs tracking-widest focus:ring-0 text-black placeholder:text-zinc-400 focus:outline-none" 
+                  placeholder="Search GST, Company Registration..." 
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
               <div className="flex gap-1 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
-                <button className="px-8 py-3 font-label text-xs tracking-[0.2em] uppercase font-bold bg-primary-container text-black">All</button>
-                <button className="px-8 py-3 font-label text-xs tracking-[0.2em] uppercase font-bold bg-transparent text-zinc-500 hover:text-black">Registration</button>
-                <button className="px-8 py-3 font-label text-xs tracking-[0.2em] uppercase font-bold bg-transparent text-zinc-500 hover:text-black">Tax</button>
-                <button className="px-8 py-3 font-label text-xs tracking-[0.2em] uppercase font-bold bg-transparent text-zinc-500 hover:text-black">Other</button>
+                {categoriesList.map(cat => (
+                  <button 
+                    key={cat.id} 
+                    onClick={() => setActiveTab(cat.id)}
+                    className={`px-8 py-3 font-label text-xs tracking-[0.2em] uppercase font-bold transition-colors whitespace-nowrap ${
+                      activeTab === cat.id 
+                      ? "bg-primary-container text-black" 
+                      : "bg-transparent text-zinc-500 hover:text-black"
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services Content - Registration */}
-        <section className="py-24 bg-surface">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="mb-24">
-              <div className="flex items-end justify-between mb-12 border-l-8 border-primary-container pl-6">
-                <h2 className="font-headline text-5xl font-black uppercase tracking-tighter text-black">Registration <br/>Services</h2>
-                <span className="font-label text-zinc-400 tracking-[0.5em] text-xs uppercase hidden md:block font-bold">Secure Your Identity</span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Service Card 1 */}
-                <div className="group relative bg-white p-8 flex flex-col h-full service-card transition-all duration-300 hover:shadow-xl">
-                  <div className="absolute top-0 left-0 h-1 bg-primary-container accent-bar transition-all duration-500 w-0 group-hover:w-full"></div>
-                  <span className="material-symbols-outlined text-4xl mb-6 text-black">corporate_fare</span>
-                  <h3 className="text-xl font-bold mb-3 uppercase tracking-tight text-black">Private Limited Co.</h3>
-                  <p className="text-zinc-600 text-sm mb-6 leading-relaxed">Complete structural incorporation for startups and SMEs.</p>
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      Digital Signature Certificate (DSC) included.
-                    </li>
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      MoA &amp; AoA drafting and filing.
-                    </li>
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      PAN/TAN application process.
-                    </li>
-                  </ul>
-                  <div className="flex flex-col gap-3">
-                    <button className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors">Enquire Now</button>
-                    <button className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors">Learn More</button>
+        {/* Services Content Grid */}
+        <div className="bg-surface min-h-[50vh]">
+          {filteredServices.length === 0 ? (
+            <section className="py-32 max-w-7xl mx-auto px-8 text-center flex flex-col items-center justify-center">
+              <span className="material-symbols-outlined text-6xl mb-6 text-zinc-300">search_off</span>
+              <h3 className="text-2xl font-bold mb-3 uppercase tracking-tight text-black">No services found</h3>
+              <p className="text-zinc-500 font-inter max-w-md mx-auto text-sm leading-relaxed mb-8">
+                We couldn't find any services matching "{searchQuery}". Try using different keywords or browse our categories.
+              </p>
+              <button 
+                onClick={() => { setSearchQuery(""); setActiveTab("All"); }}
+                className="px-8 py-4 bg-zinc-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors"
+              >
+                Clear Filters
+              </button>
+            </section>
+          ) : (
+            categoriesToRender.map((category) => {
+              const categoryServices = filteredServices.filter(s => s.category === category);
+              if (categoryServices.length === 0) return null;
+              
+              const headerInfo = categoryHeaders[category];
+
+              return (
+                <section key={category} className="py-24 border-b border-zinc-200 border-opacity-60 last:border-b-0">
+                  <div className="max-w-7xl mx-auto px-8">
+                    <div className="flex items-end justify-between mb-12 border-l-8 border-primary-container pl-6">
+                      <h2 className="font-headline text-5xl font-black uppercase tracking-tighter text-black whitespace-pre-line leading-tight">{headerInfo.title}</h2>
+                      <span className="font-label text-zinc-400 tracking-[0.5em] text-xs uppercase hidden md:block font-bold">{headerInfo.subtitle}</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {categoryServices.map((service, idx) => (
+                        <div key={idx} className="group relative bg-white p-8 flex flex-col h-full service-card transition-all duration-300 hover:shadow-xl">
+                          <div className="absolute top-0 left-0 h-1 bg-primary-container accent-bar transition-all duration-500 w-0 group-hover:w-full"></div>
+                          <span className="material-symbols-outlined text-4xl mb-6 text-black">{service.icon}</span>
+                          <h3 className="text-xl font-bold mb-3 uppercase tracking-tight text-black">{service.title}</h3>
+                          <p className="text-zinc-600 text-sm mb-6 leading-relaxed">{service.description}</p>
+                          <ul className="space-y-3 mb-8 flex-grow">
+                            {service.points.map((point, pIdx) => (
+                              <li key={pIdx} className="flex items-start gap-2 text-xs font-medium text-zinc-600">
+                                <span className="material-symbols-outlined text-sm text-green-600 shrink-0">check_circle</span>
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="flex flex-col gap-3 mt-auto">
+                            <button className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors">Enquire Now</button>
+                            <button className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors">Learn More</button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                {/* Service Card 2 */}
-                <div className="group relative bg-white p-8 flex flex-col h-full service-card transition-all duration-300 hover:shadow-xl">
-                  <div className="absolute top-0 left-0 h-1 bg-primary-container accent-bar transition-all duration-500 w-0 group-hover:w-full"></div>
-                  <span className="material-symbols-outlined text-4xl mb-6 text-black">receipt_long</span>
-                  <h3 className="text-xl font-bold mb-3 uppercase tracking-tight text-black">GST Registration</h3>
-                  <p className="text-zinc-600 text-sm mb-6 leading-relaxed">Hassle-free Goods and Services Tax identification for all businesses.</p>
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      Mandatory &amp; Voluntary GST Registration.
-                    </li>
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      Composition Scheme Advisory.
-                    </li>
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      LUT Application for Exporters.
-                    </li>
-                  </ul>
-                  <div className="flex flex-col gap-3">
-                    <button className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors">Enquire Now</button>
-                    <button className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors">Learn More</button>
-                  </div>
-                </div>
-                {/* Service Card 3 */}
-                <div className="group relative bg-white p-8 flex flex-col h-full service-card transition-all duration-300 hover:shadow-xl">
-                  <div className="absolute top-0 left-0 h-1 bg-primary-container accent-bar transition-all duration-500 w-0 group-hover:w-full"></div>
-                  <span className="material-symbols-outlined text-4xl mb-6 text-black">branding_watermark</span>
-                  <h3 className="text-xl font-bold mb-3 uppercase tracking-tight text-black">Trademark Filing</h3>
-                  <p className="text-zinc-600 text-sm mb-6 leading-relaxed">Protect your brand identity with legal IP registration.</p>
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      Comprehensive TM Search.
-                    </li>
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      Classes identification &amp; filing.
-                    </li>
-                    <li className="flex items-start gap-2 text-xs font-medium text-zinc-600">
-                      <span className="material-symbols-outlined text-sm text-green-600">check_circle</span>
-                      Response to TM Objections.
-                    </li>
-                  </ul>
-                  <div className="flex flex-col gap-3">
-                    <button className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors">Enquire Now</button>
-                    <button className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors">Learn More</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                </section>
+              );
+            })
+          )}
+        </div>
       </main>
 
       {/* CTA Section (Accent Theme) */}
@@ -200,3 +422,4 @@ export default function Services() {
     </>
   )
 }
+
