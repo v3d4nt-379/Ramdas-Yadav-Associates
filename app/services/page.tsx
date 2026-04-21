@@ -225,6 +225,8 @@ const categoryHeaders: Record<string, { title: string, subtitle: string }> = {
 
 import { useEnquiry } from '@/context/EnquiryContext';
 
+const generateSlug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
 export default function Services() {
   const [activeTab, setActiveTab] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -361,7 +363,12 @@ export default function Services() {
                             >
                               Enquire Now
                             </button>
-                            <button className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors">Learn More</button>
+                            <Link 
+                              href={`/services/${generateSlug(service.title)}`}
+                              className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors text-center block"
+                            >
+                              Learn More
+                            </Link>
                           </div>
                         </div>
                       ))}
