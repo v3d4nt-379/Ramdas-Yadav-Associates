@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
+import { SlideUp, FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/animations';
 
 const servicesData = [
   // REGISTRATION SERVICES
@@ -251,10 +252,10 @@ export default function Services() {
       <main className="pt-0">
         {/* Hero Section */}
         <section className="relative bg-inverse-surface text-on-primary overflow-hidden h-[614px] flex items-center">
-          <div className="absolute inset-0 opacity-20 grayscale scale-110">
+          <FadeIn className="absolute inset-0 opacity-20 grayscale scale-110">
             <img className="w-full h-full object-cover" alt="Modern geometric skyscraper facade with sharp angles and dramatic high contrast shadows in monochrome architectural style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgJj6zGL59AVnReik1VwV-z2e-0JJSQOGm00cIGKHGsMC47k13w9QmT8b_kEXdvsbpLGJCe44Xt-q2Rp_r7LCFHNYsTG2KTOR6aww1Aiya15dth69Ek6X5n24Tunr7814Zju1vr3lZkfKzsUD-uE-5JI4sndyHIjorozPKE32MOCRRk79gzIRhT1RGzwwkIj1xiMyrnSi1EEpLlSFblS_zjKs33juDUOcyDXXzUT3Gj5Mf1BWC3C0Oow1B84-Hu7R-CZHnlbDaELgL"/>
-          </div>
-          <div className="max-w-7xl mx-auto px-8 relative z-10 grid grid-cols-12 w-full">
+          </FadeIn>
+          <SlideUp className="max-w-7xl mx-auto px-8 relative z-10 grid grid-cols-12 w-full">
             <div className="col-span-12 md:col-span-8">
               <span className="font-label tracking-[0.3em] text-primary-container uppercase text-sm mb-6 block font-bold text-yellow-500">STRATEGIC GUIDANCE</span>
               <h1 className="font-headline text-7xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 text-white">
@@ -275,7 +276,7 @@ export default function Services() {
                 </button>
               </div>
             </div>
-          </div>
+          </SlideUp>
         </section>
 
         {/* Search & Filter Bar */}
@@ -341,9 +342,9 @@ export default function Services() {
                       <h2 className="font-headline text-5xl font-black uppercase tracking-tighter text-black whitespace-pre-line leading-tight">{headerInfo.title}</h2>
                       <span className="font-label text-zinc-400 tracking-[0.5em] text-xs uppercase hidden md:block font-bold">{headerInfo.subtitle}</span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {categoryServices.map((service, idx) => (
-                        <div key={idx} className="group relative bg-white p-8 flex flex-col h-full service-card transition-all duration-300 hover:shadow-xl">
+                        <StaggerItem key={idx} className="group relative bg-white p-8 flex flex-col h-full service-card transition-all duration-300 hover:shadow-xl">
                           <div className="absolute top-0 left-0 h-1 bg-primary-container accent-bar transition-all duration-500 w-0 group-hover:w-full"></div>
                           <span className="material-symbols-outlined text-4xl mb-6 text-black">{service.icon}</span>
                           <h3 className="text-xl font-bold mb-3 uppercase tracking-tight text-black">{service.title}</h3>
@@ -370,9 +371,9 @@ export default function Services() {
                               Learn More
                             </Link>
                           </div>
-                        </div>
+                        </StaggerItem>
                       ))}
-                    </div>
+                    </StaggerContainer>
                   </div>
                 </section>
               );

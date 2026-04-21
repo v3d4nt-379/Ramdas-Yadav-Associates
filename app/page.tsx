@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import { useEnquiry } from '@/context/EnquiryContext';
+import { SlideUp, FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/animations';
 
 export default function Home() {
   const { openEnquiry } = useEnquiry();
@@ -13,7 +14,7 @@ export default function Home() {
       {/* Hero Section (Dark Theme) */}
       <section className="bg-inverse-surface text-inverse-on-surface py-24 md:py-32 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="z-10">
+          <SlideUp className="z-10">
             <div className="inline-block px-4 py-1 mb-6 border-l-4 border-primary-container bg-white/5 font-label text-xs tracking-[0.2em] uppercase text-primary-container">
               Excellence in Advisory
             </div>
@@ -34,11 +35,11 @@ export default function Home() {
                 Explore Services
               </Link>
             </div>
-          </div>
-          <div className="relative group">
+          </SlideUp>
+          <FadeIn delay={0.2} className="relative group">
             <div className="absolute -inset-4 bg-primary-container/10 blur-3xl group-hover:bg-primary-container/20 transition-all duration-700"></div>
             <img alt="Corporate Skyscraper" className="relative w-full aspect-[4/5] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000 shadow-2xl" src="/hero-image.jpg" />
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -49,9 +50,9 @@ export default function Home() {
             <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Expertise</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Our Services</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Category 1: Registration Services */}
-            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="flex items-center gap-4 mb-8">
                 <span className="material-symbols-outlined text-4xl text-primary">app_registration</span>
                 <h3 className="text-2xl font-bold tracking-tight">Registration Services</h3>
@@ -68,10 +69,10 @@ export default function Home() {
               <Link className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="/services">
                 View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
-            </div>
+            </StaggerItem>
 
             {/* Category 2: Tax Services */}
-            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="flex items-center gap-4 mb-8">
                 <span className="material-symbols-outlined text-4xl text-primary">payments</span>
                 <h3 className="text-2xl font-bold tracking-tight">Tax Services</h3>
@@ -86,10 +87,10 @@ export default function Home() {
               <Link className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="/services">
                 View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
-            </div>
+            </StaggerItem>
 
             {/* Category 3: Other Services */}
-            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="flex items-center gap-4 mb-8">
                 <span className="material-symbols-outlined text-4xl text-primary">category</span>
                 <h3 className="text-2xl font-bold tracking-tight">Other Services</h3>
@@ -106,32 +107,32 @@ export default function Home() {
               <Link className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group hover:text-primary transition-colors" href="/services">
                 View All Services <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Our Impact Section */}
       <section className="bg-inverse-surface text-inverse-on-surface py-20 px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center lg:text-left">
-            <div>
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center lg:text-left">
+            <StaggerItem>
               <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">500+</p>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Clients Served</p>
-            </div>
-            <div>
+            </StaggerItem>
+            <StaggerItem>
               <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">10+</p>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Years Experience</p>
-            </div>
-            <div>
+            </StaggerItem>
+            <StaggerItem>
               <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">1000+</p>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Returns Filed</p>
-            </div>
-            <div>
+            </StaggerItem>
+            <StaggerItem>
               <p className="text-5xl md:text-6xl font-black text-primary-container mb-2">200+</p>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Businesses Registered</p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -140,14 +141,14 @@ export default function Home() {
       {/* About Section (Light Grey Theme) */}
       <section className="bg-surface-container-low py-32 px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-          <div className="order-2 lg:order-1 relative">
+          <FadeIn delay={0.2} className="order-2 lg:order-1 relative">
             <img alt="Team handshake" className="w-full aspect-square object-cover grayscale shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmU9NIYq2hRKDTZRQeFQtYuYM2QQxPOM6dHfRmPEy9aLn6SGee6CkGWurxKS5P3GO07VOqxP0o1k2xG_VZoB4oeDvTzJiLzC3GJOissRR9pPVmO6GX53OeJf5D5n480CK5LWNSkGp_aOqzFn_l5YgtM3VLZMji9LnDQpyNU7O7tvxJUSdSB02OO-j0_F_5lqUVgfYRntAutIf7BKYNbQx0wBzDOu2m6t6Gnvkg8libXwMeyouQjiOZXSABwZE0QtEQ8MxqxomW9h8T" />
             <div className="absolute -bottom-8 -right-8 bg-primary-container p-12 hidden md:block">
               <p className="text-4xl font-black text-on-primary-fixed">25+</p>
               <p className="text-xs font-bold uppercase tracking-widest text-on-primary-fixed">Years of Legacy</p>
             </div>
-          </div>
-          <div className="order-1 lg:order-2">
+          </FadeIn>
+          <SlideUp className="order-1 lg:order-2">
             <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Who We Are</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2 mb-8 leading-tight">Your Trusted Partner</h2>
             <p className="text-on-surface-variant text-lg leading-relaxed mb-10">
@@ -184,7 +185,7 @@ export default function Home() {
                 Our Services
               </Link>
             </div>
-          </div>
+          </SlideUp>
         </div>
 
         {/* Portfolio/Team Section */}
@@ -193,9 +194,9 @@ export default function Home() {
             <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Leadership</span>
             {/* <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Meet Our Partners</h2> */}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1: Dummy (Left) */}
-            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
+            <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
                 <img alt="CA Nitin Pawar" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/nitin_yadav_1.png" />
               </div>
@@ -205,10 +206,10 @@ export default function Home() {
               <p className="text-on-surface text-sm font-bold">Audit & Assurance Specialist</p>
               <div className="w-12 h-1 bg-primary-container mx-auto my-4"></div>
               <p className="text-on-surface-variant text-sm leading-relaxed">Head of the firm's Audit & Assurance practice. Specializes in Statutory Audits, Bank Branch Audits, and GST/TDS compliance.</p>
-            </div>
+            </StaggerItem>
 
             {/* Card 2: Ramdas Yadav (Middle) */}
-            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full transform md:-translate-y-4">
+            <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full transform md:-translate-y-4">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
                 <img alt="Ramdas Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ramdas_yadav_1.png" />
               </div>
@@ -218,10 +219,10 @@ export default function Home() {
               <p className="text-on-surface text-sm font-bold">+91 8698037909</p>
               <div className="w-12 h-1 bg-primary-container mx-auto my-4"></div>
               <p className="text-on-surface-variant text-sm leading-relaxed">The firm's visionary leader bringing decades of expertise in direct taxes, corporate law, and strategic financial planning.</p>
-            </div>
+            </StaggerItem>
 
             {/* Card 3: Ajinkya Yadav (Right) */}
-            <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
+            <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
                 <img alt="Ajinkya Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ajinkya_yadav_1.png" />
               </div>
@@ -231,8 +232,8 @@ export default function Home() {
               <p className="text-on-surface text-sm font-bold">+91 8999356208</p>
               <div className="w-12 h-1 bg-primary-container mx-auto my-4"></div>
               <p className="text-on-surface-variant text-sm leading-relaxed">Driving innovation and excellence. Expert in Taxation and Government Audits with a focus on comprehensive compliance.</p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -243,9 +244,9 @@ export default function Home() {
             <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Methodology</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">How We Work</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Step 1 */}
-            <div className="relative">
+            <StaggerItem className="relative">
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">01</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
@@ -255,9 +256,9 @@ export default function Home() {
                   Deep-dive sessions to understand your business objectives and financial landscape.
                 </p>
               </div>
-            </div>
+            </StaggerItem>
             {/* Step 2 */}
-            <div className="relative">
+            <StaggerItem className="relative">
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">02</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
@@ -267,9 +268,9 @@ export default function Home() {
                   Rigorous data analysis and risk assessment to identify key optimization opportunities.
                 </p>
               </div>
-            </div>
+            </StaggerItem>
             {/* Step 3 */}
-            <div className="relative">
+            <StaggerItem className="relative">
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">03</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
@@ -279,9 +280,9 @@ export default function Home() {
                   Formulating a bespoke roadmap combining tax efficiency with growth-focused advisory.
                 </p>
               </div>
-            </div>
+            </StaggerItem>
             {/* Step 4 */}
-            <div className="relative">
+            <StaggerItem className="relative">
               <div className="text-8xl font-black text-surface-container mb-6 absolute -top-10 -left-4 z-0 opacity-50">04</div>
               <div className="relative z-10">
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4 flex items-center gap-2">
@@ -291,8 +292,8 @@ export default function Home() {
                   Seamless implementation of strategies with continuous monitoring and reporting.
                 </p>
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -303,28 +304,28 @@ export default function Home() {
             <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Advantages</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">Why Choose Us</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <StaggerItem className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <span className="material-symbols-outlined text-4xl text-primary mb-6">verified</span>
               <h4 className="text-xl font-bold mb-2">Hassle-free compliance handling</h4>
               <p className="text-on-surface-variant text-sm leading-relaxed">We take the complex burden of regulatory compliance off your shoulders so you can focus on growth.</p>
-            </div>
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            </StaggerItem>
+            <StaggerItem className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <span className="material-symbols-outlined text-4xl text-primary mb-6">psychology</span>
               <h4 className="text-xl font-bold mb-2">Expert CA guidance</h4>
               <p className="text-on-surface-variant text-sm leading-relaxed">Direct access to experienced Chartered Accountants for strategic financial decision-making.</p>
-            </div>
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            </StaggerItem>
+            <StaggerItem className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <span className="material-symbols-outlined text-4xl text-primary mb-6">account_balance_wallet</span>
               <h4 className="text-xl font-bold mb-2">Affordable and transparent pricing</h4>
               <p className="text-on-surface-variant text-sm leading-relaxed">No hidden costs. We provide high-end corporate consulting at competitive market rates.</p>
-            </div>
-            <div className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            </StaggerItem>
+            <StaggerItem className="bg-surface-container-lowest p-10 border-l-8 border-primary-container shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <span className="material-symbols-outlined text-4xl text-primary mb-6">support_agent</span>
               <h4 className="text-xl font-bold mb-2">End-to-end business support</h4>
               <p className="text-on-surface-variant text-sm leading-relaxed">From initial registration to ongoing auditing and tax planning, we are your lifelong growth partner.</p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -335,7 +336,7 @@ export default function Home() {
             <span className="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold">Clients</span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mt-2">What Our Clients Say</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <SlideUp className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-surface-container-lowest p-12 border-t-8 border-primary-container">
               <span className="material-symbols-outlined text-surface-container-highest text-6xl mb-6">format_quote</span>
               <p className="text-xl text-on-surface leading-relaxed mb-8 italic">
@@ -356,7 +357,7 @@ export default function Home() {
                 <p className="text-sm uppercase tracking-widest text-on-surface-variant">Managing Director, TechVentures Asia</p>
               </div>
             </div>
-          </div>
+          </SlideUp>
         </div>
       </section>
 
