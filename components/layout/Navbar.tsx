@@ -54,7 +54,7 @@ export default function Navbar() {
           </Link>
           <Link 
             className={`font-inter tracking-tight font-bold text-sm uppercase transition-all duration-300 border-b-2 pb-1 ${pathname === '/about' ? 'text-zinc-900 dark:text-white border-yellow-400' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border-transparent hover:border-yellow-400/50'}`} 
-            href="/#about"
+            href="/about"
           >
             About Us
           </Link>
