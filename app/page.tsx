@@ -1,7 +1,11 @@
+"use client";
+
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
+import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function Home() {
+  const { openEnquiry } = useEnquiry();
   return (
     <>
       <Navbar />
@@ -20,7 +24,10 @@ export default function Home() {
               We provide expert tax, audit, and consulting services tailored for businesses and individuals aiming for global excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-primary-container transition-all duration-300">
+              <button 
+                onClick={() => openEnquiry()}
+                className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-primary-container transition-all duration-300"
+              >
                 Get Consultation
               </button>
               <Link href="/services" className="border border-outline text-inverse-on-surface px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all text-center">
@@ -365,7 +372,10 @@ export default function Home() {
               Let's discuss how our strategic consulting can drive your financial success.
             </p>
           </div>
-          <button className="bg-black text-primary-container px-12 py-6 font-black uppercase tracking-[0.2em] text-sm hover:translate-x-2 transition-transform duration-300 shadow-xl">
+          <button 
+            onClick={() => openEnquiry()}
+            className="bg-black text-primary-container px-12 py-6 font-black uppercase tracking-[0.2em] text-sm hover:translate-x-2 transition-transform duration-300 shadow-xl"
+          >
             Contact Us Today
           </button>
         </div>

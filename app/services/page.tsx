@@ -223,9 +223,12 @@ const categoryHeaders: Record<string, { title: string, subtitle: string }> = {
     "Business": { title: "Business & \nConsulting", subtitle: "Strategic Growth" }
 };
 
+import { useEnquiry } from '@/context/EnquiryContext';
+
 export default function Services() {
   const [activeTab, setActiveTab] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const { openEnquiry } = useEnquiry();
 
   const filteredServices = servicesData.filter(service => {
     const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -259,7 +262,10 @@ export default function Services() {
                 Comprehensive financial and compliance solutions for businesses and individuals aiming for absolute market authority.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-primary-container text-black font-bold uppercase px-10 py-5 tracking-widest text-sm hover:bg-white transition-colors">
+                <button 
+                  onClick={() => openEnquiry()}
+                  className="bg-primary-container text-black font-bold uppercase px-10 py-5 tracking-widest text-sm hover:bg-white transition-colors"
+                >
                   Get Consultation
                 </button>
                 <button className="border border-zinc-500 text-white font-bold uppercase px-10 py-5 tracking-widest text-sm hover:bg-zinc-800 transition-colors">
@@ -349,7 +355,12 @@ export default function Services() {
                             ))}
                           </ul>
                           <div className="flex flex-col gap-3 mt-auto">
-                            <button className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors">Enquire Now</button>
+                            <button 
+                              onClick={() => openEnquiry(service.title)}
+                              className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors"
+                            >
+                              Enquire Now
+                            </button>
                             <button className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors">Learn More</button>
                           </div>
                         </div>
@@ -375,7 +386,10 @@ export default function Services() {
               Let's discuss how our strategic consulting can drive your financial success.
             </p>
           </div>
-          <button className="bg-black text-primary-container px-12 py-6 font-black uppercase tracking-[0.2em] text-sm hover:translate-x-2 transition-transform duration-300 shadow-xl">
+          <button 
+            onClick={() => openEnquiry()}
+            className="bg-black text-primary-container px-12 py-6 font-black uppercase tracking-[0.2em] text-sm hover:translate-x-2 transition-transform duration-300 shadow-xl"
+          >
             Contact Us Today
           </button>
         </div>

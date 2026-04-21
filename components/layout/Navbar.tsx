@@ -3,12 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { openEnquiry } = useEnquiry();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +78,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <button className="bg-primary-container text-on-primary-fixed px-8 py-3 font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
+          <button onClick={() => openEnquiry()} className="bg-primary-container text-on-primary-fixed px-8 py-3 font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
             Get Consultation
           </button>
           <button className="lg:hidden text-zinc-900">

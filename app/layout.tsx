@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { EnquiryProvider } from '@/context/EnquiryContext'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -24,7 +25,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans bg-background text-on-background selection:bg-primary-container selection:text-on-primary-fixed`}>
-        {children}
+        <EnquiryProvider>
+          {children}
+        </EnquiryProvider>
       </body>
     </html>
   )
