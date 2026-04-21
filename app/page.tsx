@@ -24,7 +24,7 @@ export default function Home() {
               We provide expert tax, audit, and consulting services tailored for businesses and individuals aiming for global excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button 
+              <button
                 onClick={() => openEnquiry()}
                 className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-primary-container transition-all duration-300"
               >
@@ -177,12 +177,12 @@ export default function Home() {
               </li>
             </ul>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <button className="bg-inverse-surface text-inverse-on-surface px-8 py-3.5 font-bold text-xs uppercase tracking-wider hover:bg-primary-container hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md">
+              <Link href="/about" className="bg-inverse-surface text-inverse-on-surface px-8 py-3.5 font-bold text-xs uppercase tracking-wider hover:bg-primary-container hover:text-on-primary-fixed transition-all duration-300 shadow-sm hover:shadow-md text-center">
                 About Us
-              </button>
-              <button className="border-2 border-outline px-8 py-3.5 font-bold text-xs uppercase tracking-wider hover:bg-surface-variant hover:border-surface-variant text-on-surface transition-all duration-300">
+              </Link>
+              <Link href="/services" className="border-2 border-outline px-8 py-3.5 font-bold text-xs uppercase tracking-wider hover:bg-surface-variant hover:border-surface-variant text-on-surface transition-all duration-300 text-center">
                 Our Services
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ export default function Home() {
             {/* Card 1: Dummy (Left) */}
             <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
-                <img alt="CA Nitin Pawar" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 bg-surface-container-high" src="/assets/nitin-pawar-BjUnlu92.webp" />
+                <img alt="CA Nitin Pawar" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/nitin_yadav_1.png" />
               </div>
               <h3 className="font-black text-2xl tracking-tight mb-1">CA Nitin Pawar</h3>
               <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Designated Partner</p>
@@ -210,9 +210,9 @@ export default function Home() {
             {/* Card 2: Ramdas Yadav (Middle) */}
             <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full transform md:-translate-y-4">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
-                <img alt="Ramdas Yadav" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 bg-surface-container-high" src="/assets/sumit-kadam-Cgz8VSsD.webp" />
+                <img alt="Ramdas Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ramdas_yadav_1.png" />
               </div>
-              <h3 className="font-black text-2xl tracking-tight mb-1">Ramdas Yadav</h3>
+              <h3 className="font-black text-2xl tracking-tight mb-1">CA Ramdas Yadav</h3>
               <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Founder & Principal</p>
               <p className="text-on-surface-variant text-sm font-bold mb-1">M.Com., CA.Final., G.D.C. & A.</p>
               <p className="text-on-surface text-sm font-bold">+91 8698037909</p>
@@ -223,7 +223,7 @@ export default function Home() {
             {/* Card 3: Ajinkya Yadav (Right) */}
             <div className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
-                <img alt="Ajinkya Yadav" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 bg-surface-container-high" src="/assets/vishal-jagtap-DRcFQmyw.webp" />
+                <img alt="Ajinkya Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ajinkya_yadav_1.png" />
               </div>
               <h3 className="font-black text-2xl tracking-tight mb-1">Ajinkya Yadav</h3>
               <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Managing Partner</p>
@@ -372,7 +372,7 @@ export default function Home() {
               Let's discuss how our strategic consulting can drive your financial success.
             </p>
           </div>
-          <button 
+          <button
             onClick={() => openEnquiry()}
             className="bg-black text-primary-container px-12 py-6 font-black uppercase tracking-[0.2em] text-sm hover:translate-x-2 transition-transform duration-300 shadow-xl"
           >
@@ -399,7 +399,7 @@ export default function Home() {
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Quick Links</h4>
             <ul className="space-y-4">
               <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/">Home</Link></li>
-              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/#about">About Us</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/about">About Us</Link></li>
               <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/services">Services</Link></li>
               <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/#process">Process</Link></li>
             </ul>
@@ -407,10 +407,10 @@ export default function Home() {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Resources</h4>
             <ul className="space-y-4">
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Privacy Policy</a></li>
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Terms of Service</a></li>
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Contact Us</a></li>
-              <li><a className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4 text-yellow-400 font-bold" href="#">Client Login</a></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Privacy Policy</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Terms of Service</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/contact">Contact Us</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4 text-yellow-400 font-bold" href="#">Client Login</Link></li>
             </ul>
           </div>
         </div>

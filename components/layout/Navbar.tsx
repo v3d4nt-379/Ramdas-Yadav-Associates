@@ -10,6 +10,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { openEnquiry } = useEnquiry();
 
   useEffect(() => {
@@ -78,12 +79,29 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <button onClick={() => openEnquiry()} className="bg-primary-container text-on-primary-fixed px-8 py-3 font-bold text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
+          <button onClick={() => openEnquiry()} className="bg-primary-container text-on-primary-fixed px-6 py-2 md:px-8 md:py-3 font-bold text-xs md:text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
             Get Consultation
           </button>
-          <button className="lg:hidden text-zinc-900">
-            <span className="material-symbols-outlined">menu</span>
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden text-zinc-900 dark:text-white">
+            <span className="material-symbols-outlined">{isMobileMenuOpen ? 'close' : 'menu'}</span>
           </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMobileMenuOpen(false)}></div>
+      
+      {/* Mobile Menu Drawer */}
+      <div className={`fixed top-0 right-0 w-64 h-screen bg-white dark:bg-zinc-900 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col pt-24 px-8 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-6 right-8 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">
+           <span className="material-symbols-outlined">close</span>
+        </button>
+        <div className="flex flex-col space-y-6">
+          <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/">Home</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/about' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/about">About Us</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/services' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/services">Services</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/process' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/#process">Process</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/contact' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/contact">Contact Us</Link>
         </div>
       </div>
     </nav>
