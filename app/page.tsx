@@ -211,7 +211,7 @@ export default function Home() {
             {/* Card 2: Ramdas Yadav (Middle) */}
             <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full transform md:-translate-y-4">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
-                <img alt="Ramdas Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ramdas_yadav_1.png" />
+                <img alt="Ramdas Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ramdas_yadav_team_512.webp" />
               </div>
               <h3 className="font-black text-2xl tracking-tight mb-1">CA Ramdas Yadav</h3>
               <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Founder & Principal</p>
@@ -224,7 +224,7 @@ export default function Home() {
             {/* Card 3: Ajinkya Yadav (Right) */}
             <StaggerItem className="bg-surface-container-lowest p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col h-full">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
-                <img alt="Ajinkya Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ajinkya_yadav_1.png" />
+                <img alt="Ajinkya Yadav" className="w-full h-full object-cover object-top transition-transform duration-500 bg-surface-container-high hover:scale-110" src="/ajinkya_yadav_team_512.webp" />
               </div>
               <h3 className="font-black text-2xl tracking-tight mb-1">Ajinkya Yadav</h3>
               <p className="text-primary text-xs uppercase tracking-widest font-bold mb-3">Managing Partner</p>

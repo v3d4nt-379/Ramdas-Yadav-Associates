@@ -34,7 +34,7 @@ export default function About() {
                 {/* Image Container */}
                 <div className="bg-gradient-to-b from-zinc-100 to-zinc-200 rounded-[2rem] p-8 pb-0 aspect-[4/5] flex items-end justify-center relative overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-zinc-200 z-10">
                   <img
-                    src="/yadav_aboutus.png"
+                    src="/ramdas_yadav_aboutus.png"
                     alt="CA Mr. Ramdas Yadav"
                     className="w-full h-auto object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.2)] group-hover:drop-shadow-[0_25px_25px_rgba(250,204,21,0.5)] group-hover:scale-105 transition-all duration-500 origin-bottom"
                   />
