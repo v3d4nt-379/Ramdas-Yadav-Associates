@@ -1,45 +1,145 @@
 "use client";
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import Navbar from '@/components/layout/Navbar';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SlideUp, FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/animations';
 
 export default function Home() {
   const { openEnquiry } = useEnquiry();
+
+  const [typedChars, setTypedChars] = useState(0);
+  const textLines = [
+    "Building",
+    "Financial",
+    "Confidence for",
+    "Your Future "
+  ];
+  const fullText = textLines.join('\n');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      let current = 0;
+      const interval = setInterval(() => {
+        current++;
+        setTypedChars(prev => prev < fullText.length ? prev + 1 : prev);
+        if (current >= fullText.length) {
+          clearInterval(interval);
+        }
+      }, 70); // Adjusted pacing
+      return () => clearInterval(interval);
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [fullText.length]);
+
+  const displayedText = fullText.slice(0, typedChars);
+  const displayedLines = displayedText.split('\n');
+
   return (
     <>
       <Navbar />
 
-      {/* Hero Section (Dark Theme) */}
-      <section className="bg-inverse-surface text-inverse-on-surface py-24 md:py-32 overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <SlideUp className="z-10">
-            <div className="inline-block px-4 py-1 mb-6 border-l-4 border-primary-container bg-white/5 font-label text-xs tracking-[0.2em] uppercase text-primary-container">
+      {/* Hero Section */}
+      <section className="text-white py-24 md:py-32 lg:py-40 overflow-hidden relative bg-[#0a0a0a]">
+        {/* Background Image that fades in */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 4.2 }}
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url('/InShot_gemini.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+
+        {/* Gradient Overlay */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                90deg,
+                rgba(10,10,10,0.85) 0%,
+                rgba(10,10,10,0.65) 35%,
+                rgba(10,10,10,0.35) 65%,
+                rgba(10,10,10,0.15) 100%
+              )
+            `
+          }}
+        />
+
+        {/* Mobile gradient fallback to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent lg:hidden z-0 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div className="z-10 flex flex-col items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-1 mb-6 border-l-4 border-primary-container bg-black/30 backdrop-blur-md font-label text-xs tracking-[0.2em] uppercase text-primary-container shadow-sm"
+            >
               Excellence in Advisory
+            </motion.div>
+
+            <div className="relative mb-8 w-full">
+              {/* Invisible placeholder to prevent layout shift */}
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] opacity-0 flex flex-col pointer-events-none select-none" aria-hidden="true">
+                {textLines.map((line, i) => (
+                  <span key={`ph-${i}`} className="block pb-2">{line}</span>
+                ))}
+              </h1>
+
+              {/* Actual typing text */}
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] drop-shadow-xl flex flex-col absolute top-0 left-0 text-white w-full h-full">
+                {displayedLines.map((line, i) => (
+                  <span key={`line-${i}`} className="block pb-2">
+                    {line}
+                    {i === displayedLines.length - 1 && (
+                      <motion.span
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+                        className="inline-block w-[4px] md:w-[6px] h-[0.9em] bg-primary-container align-baseline ml-2"
+                      />
+                    )}
+                  </span>
+                ))}
+              </h1>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-8">
-              Building Financial <br />Confidence for <br />Your Future
-            </h1>
-            <p className="text-lg md:text-xl text-zinc-400 mb-10 max-w-xl leading-relaxed">
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 3.8, ease: "easeOut" }}
+              className="text-lg md:text-xl text-zinc-200 mb-10 max-w-xl leading-relaxed drop-shadow-md"
+            >
               We provide expert tax, audit, and consulting services tailored for businesses and individuals aiming for global excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 4.2, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row gap-6 w-full"
+            >
               <button
                 onClick={() => openEnquiry()}
-                className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-primary-container transition-all duration-300"
+                className="bg-primary-container text-on-primary-fixed px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300 shadow-xl"
               >
                 Get Consultation
               </button>
-              <Link href="/services" className="border border-outline text-inverse-on-surface px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/5 transition-all text-center">
+              <Link href="/services" className="border border-white/20 bg-black/20 backdrop-blur-md text-white px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all text-center shadow-xl">
                 Explore Services
               </Link>
-            </div>
-          </SlideUp>
-          <FadeIn delay={0.2} className="relative group">
-            <div className="absolute -inset-4 bg-primary-container/10 blur-3xl group-hover:bg-primary-container/20 transition-all duration-700"></div>
-            <img alt="Corporate Skyscraper" className="relative w-full aspect-[4/5] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000 shadow-2xl" src="/hero-image.jpg" />
-          </FadeIn>
+            </motion.div>
+          </div>
+          {/* Spacer to maintain grid and let background image shine on the right side */}
+          <div className="hidden lg:block min-h-[450px]"></div>
         </div>
       </section>
 
