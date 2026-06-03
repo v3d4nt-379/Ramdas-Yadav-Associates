@@ -512,11 +512,12 @@ export default function Home() {
               <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/terms-of-service">Terms of Service</Link></li>
               <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/refund-policy">Refund & Cancellation Policy</Link></li>
               <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/contact">Contact Us</Link></li>
+              <li><Link className="text-yellow-400 font-bold hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/admin/login">Admin Login</Link></li>
             </ul>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-8 mt-20 pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-zinc-500 font-inter text-sm">© 2024 Ramdas Yadav Associates. All rights reserved.</p>
+          <p className="text-zinc-500 font-inter text-sm">© {new Date().getFullYear()} Ramdas Yadav Associates. All rights reserved.</p>
           <p className="text-zinc-500 font-inter text-sm">Architectural Authority in Finance</p>
         </div>
       </footer>
