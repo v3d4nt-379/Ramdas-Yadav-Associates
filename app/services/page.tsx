@@ -427,12 +427,12 @@ export default function Services() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Resources</h4>
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Legal</h4>
             <ul className="space-y-4">
-              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Privacy Policy</Link></li>
-              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="#">Terms of Service</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/terms-of-service">Terms of Service</Link></li>
+              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/refund-policy">Refund & Cancellation Policy</Link></li>
               <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4" href="/contact">Contact Us</Link></li>
-              <li><Link className="text-zinc-400 hover:text-white transition-colors font-inter text-sm hover:underline decoration-yellow-400 underline-offset-4 text-yellow-400 font-bold" href="#">Client Login</Link></li>
             </ul>
           </div>
         </div>
