@@ -9,7 +9,6 @@ import {
   deleteDoc,
   query,
   orderBy,
-  where,
   type Timestamp,
 } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
@@ -26,16 +25,7 @@ export default function AdminEnquiries() {
 
   const fetchEnquiries = useCallback(async () => {
     try {
-      let q;
-      if (filterStatus !== 'all') {
-        q = query(
-          collection(db, 'enquiries'),
-          where('enquiry_status', '==', filterStatus),
-          orderBy('createdAt', 'desc')
-        );
-      } else {
-        q = query(collection(db, 'enquiries'), orderBy('createdAt', 'desc'));
-      }
+      const q = query(collection(db, 'enquiries'), orderBy('createdAt', 'desc'));
       const snapshot = await getDocs(q);
       const data = snapshot.docs.map((docSnap) => ({
         ...docSnap.data(),
@@ -47,7 +37,7 @@ export default function AdminEnquiries() {
     } finally {
       setLoading(false);
     }
-  }, [filterStatus]);
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -102,8 +92,11 @@ export default function AdminEnquiries() {
     });
   };
 
-  // Search filter (client-side)
+  // Filter by status + search (all client-side)
   const filteredEnquiries = enquiries.filter((e) => {
+    // Status filter
+    if (filterStatus !== 'all' && e.enquiry_status !== filterStatus) return false;
+    // Search filter
     if (!searchTerm) return true;
     const term = searchTerm.toLowerCase();
     return (

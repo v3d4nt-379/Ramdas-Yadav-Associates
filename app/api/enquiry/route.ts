@@ -23,8 +23,10 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: 'Service is required.' }, { status: 400 });
     }
 
-    // ─── Upsert Customer ───────────────────────────────────────
-    // Check if a customer with this phone already exists
+    // ─── Find or Create Customer ───────────────────────────────
+    // Dedup by phone. If phone exists → reuse customer_id.
+    // We do NOT overwrite the existing customer's name/email —
+    // each enquiry stores its own submitted details (denormalized).
     const customerQuery = await adminDb
       .collection('customers')
       .where('cust_phone', '==', phone)
@@ -34,15 +36,10 @@ export async function POST(request: NextRequest) {
     let customerId: string;
 
     if (!customerQuery.empty) {
-      // Existing customer — update name/email if changed
-      const existingDoc = customerQuery.docs[0];
-      customerId = existingDoc.id;
-      await existingDoc.ref.update({
-        cust_name: name.trim(),
-        ...(email ? { cust_email: email.trim() } : {}),
-      });
+      // Existing customer — just reuse their ID, don't overwrite details
+      customerId = customerQuery.docs[0].id;
     } else {
-      // New customer
+      // New customer — create with the first submitted details
       customerId = randomUUID();
       await adminDb.collection('customers').doc(customerId).set({
         customer_id: customerId,
@@ -54,6 +51,8 @@ export async function POST(request: NextRequest) {
     }
 
     // ─── Create Enquiry ────────────────────────────────────────
+    // Each enquiry stores its own name/phone/email (denormalized)
+    // so admin always sees who submitted what, even if details differ
     const enquiryId = randomUUID();
     const enquiryData = {
       enquiry_id: enquiryId,
@@ -70,9 +69,12 @@ export async function POST(request: NextRequest) {
     await adminDb.collection('enquiries').doc(enquiryId).set(enquiryData);
 
     // ─── Send Confirmation Email (if email provided) ───────────
+    // NOTE: Resend free tier with onboarding@resend.dev can ONLY send
+    // to the email registered on your Resend account. To send to any
+    // customer, add & verify your own domain in Resend dashboard.
     if (email && email.trim()) {
       try {
-        await resend.emails.send({
+        const emailResult = await resend.emails.send({
           from: FROM_EMAIL,
           to: email.trim(),
           subject: 'Enquiry Received — Ramdas Yadav Associates',
@@ -139,9 +141,12 @@ export async function POST(request: NextRequest) {
             </div>
           `,
         });
+
+        // Log the result for debugging
+        console.log('Email send result:', JSON.stringify(emailResult));
       } catch (emailError) {
-        // Don't fail the enquiry if email fails — just log it
-        console.error('Email send failed:', emailError);
+        // Don't fail the enquiry if email fails — log full error
+        console.error('Email send failed:', JSON.stringify(emailError));
       }
     }
 
