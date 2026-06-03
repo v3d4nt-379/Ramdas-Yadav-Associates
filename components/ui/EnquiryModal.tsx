@@ -93,24 +93,31 @@ export default function EnquiryModal({ isOpen, onClose, initialService }: Enquir
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      const payload = {
-        name,
-        phone,
-        email,
-        service,
-        message,
-        timestamp: new Date().toISOString()
-      };
-      console.log("Submitting enquiry:", payload);
-      
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone,
+          email: email.trim() || undefined,
+          service,
+          message: message.trim() || undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong.');
+      }
+
       setIsSuccess(true);
       setTimeout(() => {
         onClose();
       }, 3000);
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
+    } catch (err: unknown) {
+      const errMessage = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+      setError(errMessage);
     } finally {
       setIsSubmitting(false);
     }

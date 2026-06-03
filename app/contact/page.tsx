@@ -69,7 +69,24 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone,
+          email: email.trim() || undefined,
+          service,
+          message: message.trim() || undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong.');
+      }
+
       setIsSuccess(true);
       // Reset form after success
       setTimeout(() => {
@@ -81,8 +98,9 @@ export default function Contact() {
         setSearchQuery("");
         setMessage("");
       }, 5000);
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
+    } catch (err: unknown) {
+      const errMessage = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setError(errMessage);
     } finally {
       setIsSubmitting(false);
     }
