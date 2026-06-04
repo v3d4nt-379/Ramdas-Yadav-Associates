@@ -77,6 +77,12 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
+          <Link 
+            className={`font-inter tracking-tight font-bold text-sm uppercase transition-all duration-300 border-b-2 pb-1 ${pathname === '/track-order' ? 'text-zinc-900 dark:text-white border-yellow-400' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border-transparent hover:border-yellow-400/50'}`} 
+            href="/track-order"
+          >
+            Track Order
+          </Link>
         </div>
         <div className="flex items-center gap-4">
           <button onClick={() => openEnquiry()} className="bg-primary-container text-on-primary-fixed px-6 py-2 md:px-8 md:py-3 font-bold text-xs md:text-sm uppercase tracking-wider hover:bg-black hover:text-primary-container transition-all duration-300">
@@ -102,6 +108,7 @@ export default function Navbar() {
           <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/services' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/services">Services</Link>
           <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/process' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/#process">Process</Link>
           <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/contact' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/contact">Contact Us</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} className={`font-inter tracking-tight font-bold text-lg uppercase transition-all duration-300 ${pathname === '/track-order' ? 'text-yellow-500' : 'text-zinc-900 dark:text-white'}`} href="/track-order">Track Order</Link>
         </div>
       </div>
     </nav>
