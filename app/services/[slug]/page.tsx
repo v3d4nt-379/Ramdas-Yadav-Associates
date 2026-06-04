@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import EnquiryButton from "@/components/ui/EnquiryButton";
+import PurchaseButton from "@/components/ui/PurchaseButton";
 import { notFound } from "next/navigation";
+import { adminDb } from "@/lib/firebase-admin";
 
 export const serviceDetails: Record<string, any> = {
   "private-limited-company-registration": {
@@ -126,6 +128,22 @@ export default async function ServiceDetail({ params }: { params: { slug: string
     notFound();
   }
 
+  // Check if this service is purchasable in Firestore
+  let buyableData: any = null;
+  try {
+    const snap = await adminDb
+      .collection('services')
+      .where('slug', '==', slug)
+      .where('isActive', '==', true)
+      .limit(1)
+      .get();
+    if (!snap.empty) {
+      buyableData = snap.docs[0].data();
+    }
+  } catch (e) {
+    console.error('Failed to check buyable status:', e);
+  }
+
   return (
     <>
       <Navbar />
@@ -153,11 +171,20 @@ export default async function ServiceDetail({ params }: { params: { slug: string
             
             {/* CTA Buttons in Hero */}
             <div className="lg:w-1/3 flex flex-col sm:flex-row lg:flex-col gap-4 lg:mb-2">
-               <EnquiryButton 
-                  serviceTitle={service.title}
-                  text="Enquire Now"
-                  className="bg-yellow-500 text-black px-8 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors w-full text-center shadow-lg hover:shadow-xl"
-               />
+               {buyableData ? (
+                 <PurchaseButton
+                    serviceId={buyableData.service_id}
+                    serviceName={buyableData.service_name}
+                    servicePricePaise={buyableData.service_price}
+                    className="bg-yellow-500 text-black px-8 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors w-full text-center shadow-lg hover:shadow-xl"
+                 />
+               ) : (
+                 <EnquiryButton 
+                    serviceTitle={service.title}
+                    text="Enquire Now"
+                    className="bg-yellow-500 text-black px-8 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors w-full text-center shadow-lg hover:shadow-xl"
+                 />
+               )}
                <Link 
                   href="/services"
                   className="border border-zinc-700 text-white px-8 py-5 font-bold uppercase tracking-widest text-sm hover:bg-zinc-800 transition-colors w-full text-center"

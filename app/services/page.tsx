@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import { SlideUp, FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/animations';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+import PurchaseButton from '@/components/ui/PurchaseButton';
 
 const servicesData = [
   // REGISTRATION SERVICES
@@ -231,7 +234,27 @@ const generateSlug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g,
 export default function Services() {
   const [activeTab, setActiveTab] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [buyableServices, setBuyableServices] = useState<Record<string, any>>({});
   const { openEnquiry } = useEnquiry();
+
+  // Fetch active services from Firestore to know which ones are buyable
+  useEffect(() => {
+    const fetchBuyable = async () => {
+      try {
+        const q = query(collection(db, 'services'), where('isActive', '==', true));
+        const snapshot = await getDocs(q);
+        const map: Record<string, any> = {};
+        snapshot.forEach(doc => {
+          const d = doc.data();
+          if (d.slug) map[d.slug] = d;
+        });
+        setBuyableServices(map);
+      } catch (err) {
+        console.error('Failed to fetch buyable services:', err);
+      }
+    };
+    fetchBuyable();
+  }, []);
 
   const filteredServices = servicesData.filter(service => {
     const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -358,13 +381,25 @@ export default function Services() {
                             ))}
                           </ul>
                           <div className="flex flex-col gap-3 mt-auto">
-                            <button 
-                              onClick={() => openEnquiry(service.title)}
-                              className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors"
-                            >
-                              Enquire Now
-                            </button>
-                            <Link 
+                            {(() => {
+                              const slug = generateSlug(service.title);
+                              const buyable = buyableServices[slug];
+                              return buyable ? (
+                                <PurchaseButton
+                                  serviceId={buyable.service_id}
+                                  serviceName={buyable.service_name}
+                                  servicePricePaise={buyable.service_price}
+                                />
+                              ) : (
+                                <button
+                                  onClick={() => openEnquiry(service.title)}
+                                  className="w-full bg-zinc-900 text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors"
+                                >
+                                  Enquire Now
+                                </button>
+                              );
+                            })()}
+                            <Link
                               href={`/services/${generateSlug(service.title)}`}
                               className="w-full border border-zinc-200 text-zinc-900 py-3 text-xs font-bold uppercase tracking-widest hover:bg-zinc-50 transition-colors text-center block"
                             >
